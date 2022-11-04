@@ -2,7 +2,7 @@
 
 - Astro
 - Netlify
-- *Netlify CMS
+- Netlify CMS
 - *Multiligual 
 
-*to do
+*I couldn't have setup correctly yet.
