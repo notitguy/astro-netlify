@@ -1,0 +1,31 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import CardV2 from "../../components/CardV2.astro";
+
+export async function getStaticPaths() {
+  const posts = await Astro.glob('../../posts/*.md');
+
+  return posts.map(post => ({
+    params: {
+      slug: post.frontmatter.slug
+    },
+    props: {
+      post
+    }
+  }));
+}
+
+const { Content, frontmatter } = Astro.props.post;
+---
+
+<Layout title={frontmatter.title}>
+  <secttion class="page-content">
+    <div class="container">
+      <CardV2>
+        <a class="btn" href="/blog">Go back</a>  
+        <h2>{frontmatter.title}</h2>  
+        <Content />
+      </CardV2>
+    </div>
+  </secttion>
+</Layout>
