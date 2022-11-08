@@ -16,7 +16,7 @@ const posts = await Astro.glob('../../posts/*.md');
 
 <Layout title="Blog">
   <Showcase heading="Astro Blog" text="A simple blog built with Astro." />
-  <secttion class="page-content">
+  <section class="page-content">
     <div class="container">
       {posts.map( post => (
         <CardV2>
@@ -26,5 +26,5 @@ const posts = await Astro.glob('../../posts/*.md');
         </CardV2>
       ))}
     </div>
-  </secttion>
+  </section>
 </Layout>

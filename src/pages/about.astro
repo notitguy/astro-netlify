@@ -4,11 +4,39 @@ import CardV2 from "../components/CardV2.astro";
 
 import logos from '../images/deploy-logos.png';
 import logosSmall from '../images/deploy-logos-small.png';
----
 
+const graphql = await fetch('http://127.0.0.1/pw/en/graphql/', {
+  method: 'POST',
+  headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({ 
+      query: `{
+        language(name: "default")
+        home {
+          list {
+            headline
+            body
+            images {
+              url
+            }
+          }
+        }
+      }` 
+    }),
+});
+const json = await graphql.json();
+const pw = json.data;
+
+---
 <Layout title="About page">
   <section class="page-content">
     <div class="container">
+      <section class="page-content">
+          <Fragment set:html={pw.home.list[0].headline}></Fragment>
+          <Fragment set:html={pw.home.list[0].body}></Fragment>
+      </section>
       <h2>About Astro</h2>
       <p>
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam, vel
