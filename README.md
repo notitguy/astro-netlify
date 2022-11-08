@@ -2,7 +2,7 @@
 
 - Astro
 - Netlify
-- Netlify CMS
-- *Multiligual 
+- ~~Netlify CMS~~
+- Multiligual (to do)
 
-*I couldn't have setup correctly yet.
+Instead of Netlify CMS, I managed to fetch GraphQL from Processwire.
