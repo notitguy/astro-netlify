@@ -3,7 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 import CardV2 from "../../components/CardV2.astro";
 
 export async function getStaticPaths() {
-  const posts = await Astro.glob('../../posts/*.md');
+  const posts = await Astro.glob('./posts/*.md');
 
   return posts.map(post => ({
     params: {
